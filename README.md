@@ -3,6 +3,12 @@
 A simple and tiny timer that counts down in big figlet numbers. \
 Made for personal use, do whatever you want with this.
 
+## Usage
+
+``` sh
+countdown 100
+```
+
 ## Build
 
 ``` sh
