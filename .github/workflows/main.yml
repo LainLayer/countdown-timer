@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
     - name: Install nim
       run: |
         curl https://nim-lang.org/choosenim/init.sh -sSf > install.sh
@@ -16,7 +19,5 @@ jobs:
         ./install.sh -y
         export PATH=/home/runner/.nimble/bin:$PATH
         nimble install flatty -y
-    - name: update submodules
-      run: git submodule update --remote
     - name: Build
       run: ./build.sh
