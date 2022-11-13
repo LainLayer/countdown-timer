@@ -1,0 +1,25 @@
+
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install nim
+      run: |
+        curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+        choosenim devel --latest
+    - name: Build
+      run: |
+        ./build.sh
