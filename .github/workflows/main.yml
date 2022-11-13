@@ -18,5 +18,6 @@ jobs:
         chmod +x install.sh
         ./install.sh -y
         export PATH=/home/runner/.nimble/bin:$PATH
+        choosenim devel --latest
         nimble install flatty -y
         ./build.sh
