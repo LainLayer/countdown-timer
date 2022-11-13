@@ -15,7 +15,7 @@ jobs:
         chmod +x install.sh
         ./install.sh -y
         export PATH=/home/runner/.nimble/bin:$PATH
-        nimble install flatty
+        nimble install flatty -y
     - name: update submodules
       run: git submodule update --remote
     - name: Build
