@@ -14,6 +14,7 @@ jobs:
         curl https://nim-lang.org/choosenim/init.sh -sSf > install.sh
         chmod +x install.sh
         ./install.sh -y
+        export PATH=/home/runner/.nimble/bin:$PATH
         choosenim latest --devel
     - name: Build
       run: ./build.sh
