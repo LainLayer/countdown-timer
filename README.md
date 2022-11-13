@@ -5,7 +5,7 @@ Made for personal use, do whatever you want with this.
 
 ## Usage
 
-``` sh
+```
 $ ./countdown 100
   _    ___     ___
  / |  / _ \   / _ \
