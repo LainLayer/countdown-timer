@@ -16,7 +16,7 @@ make -j$(nproc) -B
 make install
 cd ..
 
-# nim r numbers.nim
+nim r numbers.nim
 
 nim c -f\
 	--cc:$CC \
