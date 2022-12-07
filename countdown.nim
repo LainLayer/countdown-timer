@@ -1,92 +1,23 @@
 import terminal, os, strutils
 import flatty
-
-const numbers_compressed = [
-  [
-  "   ___  ",
-  "  / _ \\ ",
-  " | | | |",
-  " | |_| |",
-  "  \\___/ "],
-
-  [
-  "  _ ",
-  " / |",
-  " | |",
-  " | |",
-  " |_|"],
-
-  [
-  "  ____  ",
-  " |___ \\ ",
-  "   __) |",
-  "  / __/ ",
-  " |_____|"],
-
-  [
-  "  _____ ",
-  " |___ / ",
-  "   |_ \\ ",
-  "  ___) |",
-  " |____/ "],
-
-  [
-  "  _  _   ",
-  " | || |  ",
-  " | || |_ ",
-  " |__   _|",
-  "    |_|  "],
-
-  [
-  "  ____  ",
-  " | ___| ",
-  " |___ \\ ",
-  "  ___) |",
-  " |____/ "],
-
-  [
-  "   __   ",
-  "  / /_  ",
-  " |  _ \\ ",
-  " | (_) |",
-  "  \\___/ "],
-
-  [
-  "  _____ ",
-  " |___  |",
-  "    / / ",
-  "   / /  ",
-  "  /_/   "],
-
-  [
-  "   ___  ",
-  "  ( _ ) ",
-  "  / _ \\ ",
-  " | (_) |",
-  "  \\___/ "],
-
-  [
-  "   ___  ",
-  "  / _ \\ ",
-  " | (_) |",
-  "  \\__, |",
-  "    /_/ "]
-
-].toFlatty()
+import supersnappy
 
 type Big = array[5, string]
-let numbers = numbers_compressed.fromFlatty(array[10, Big])
+
+const numbers_compressed = slurp("numbers.bin")
+
+let numbers = numbers_compressed.uncompress().fromFlatty(array[10, Big])
 
 const padding = "        "
 
 
-proc `$`(b: seq[Big]): string =
+proc `$`(b: seq[Big]): string {.inline.} =
   for i in 0..4:
     for number in b:
       result &= number[i]
     result &= padding & "\n"
 
-proc toBig(n: int): string =
+proc toBig(n: int): string {.inline.} =
   var
     bigDigits: seq[Big] = @[]
     temp = n
