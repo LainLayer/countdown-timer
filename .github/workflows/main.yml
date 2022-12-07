@@ -20,4 +20,5 @@ jobs:
         export PATH=/home/runner/.nimble/bin:$PATH
         choosenim devel --latest
         nimble install flatty -y
+        nimble install supersnappy -y
         ./build.sh
